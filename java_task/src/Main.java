@@ -1,4 +1,5 @@
 import card.CreditCard;
+import card.DebitCard;
 import card.bonuses.AccumulativeDebitCard;
 import card.bonuses.CashbackCreditCard;
 import card.bonuses.CashbackDebitCard;
@@ -6,6 +7,16 @@ import card.bonuses.CumulativePointsCreditCard;
 
 public class Main {
     public static void main(String[] args) {
+        System.out.println();
+        System.out.println("Выпускаем обычную дебетовую карту");
+        DebitCard debitCard = new DebitCard();
+        System.out.println("Пополняем на 5000");
+        debitCard.replenish(5000.);
+        debitCard.getBalanceInfo();
+        System.out.println("Оплачиваем на 2000");
+        debitCard.pay(2000.);
+        debitCard.getBalanceInfo();
+        System.out.println();
         System.out.println("Выпускаем кредитную карту с лимитом 10000");
         CreditCard defaultCreditCard = new CreditCard(10000.);
         defaultCreditCard.getAvailableFundsInfo();
@@ -25,7 +36,7 @@ public class Main {
         defaultCreditCard.replenish(2000.);
         defaultCreditCard.getBalanceInfo();
         System.out.println();
-        System.out.println("Создаем кредитную карту с кэшбэком 5% от покупок в 5000");
+        System.out.println("Выпускаем кредитную карту с кэшбэком 5% от покупок в 5000");
         CashbackCreditCard cashbackCreditCard = new CashbackCreditCard(10000., 0.05, 5000.);
         cashbackCreditCard.getAvailableFundsInfo();
         System.out.println("Пополняем на 5000");
@@ -41,7 +52,7 @@ public class Main {
         cashbackCreditCard.pay(4999.);
         cashbackCreditCard.getBalanceInfo();
         System.out.println();
-        System.out.println("Создаем дебетовую карту с кэшбэком 5% от покупок в 5000");
+        System.out.println("Выпускаем дебетовую карту с кэшбэком 5% от покупок в 5000");
         CashbackDebitCard cashbackDebitCard = new CashbackDebitCard(0.05, 5000.);
         cashbackDebitCard.getAvailableFundsInfo();
         System.out.println("Пополняем на 5000");
@@ -57,7 +68,7 @@ public class Main {
         cashbackDebitCard.pay(4999.);
         cashbackDebitCard.getBalanceInfo();
         System.out.println();
-        System.out.println("Создаем кредитную карту с накопительными баллами в 1% от суммы покупок");
+        System.out.println("Выпускаем кредитную карту с накопительными баллами в 1% от суммы покупок");
         CumulativePointsCreditCard cumulativePointsCreditCard = new CumulativePointsCreditCard(10000., 0.01);
         cumulativePointsCreditCard.getAvailableFundsInfo();
         System.out.println("Пополняем на 7000");
@@ -73,8 +84,7 @@ public class Main {
         cumulativePointsCreditCard.pay(2500.);
         cumulativePointsCreditCard.getAvailableFundsInfo();
         System.out.println();
-        System.out.println();
-        System.out.println("Создаем дебетовую карту с накоплением в 0.005% от суммы пополнения");
+        System.out.println("Выпускаем дебетовую карту с накоплением в 0.005% от суммы пополнения");
         AccumulativeDebitCard accumulativeDebitCard = new AccumulativeDebitCard(0.00005);
         accumulativeDebitCard.getAvailableFundsInfo();
         System.out.println("Пополняем на 100000");
