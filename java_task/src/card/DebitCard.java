@@ -17,12 +17,7 @@ public class DebitCard extends BankCard {
     }
 
     @Override
-    public void getBalanceInfo() {
-        System.out.println("Текущий баланс: " + Math.round(balance * 1000.) / 1000.);
-    }
-
-    @Override
     public void getAvailableFundsInfo() {
-        System.out.println("Собственные средства: " + Math.round(balance * 1000.) / 1000.);
+        System.out.println("Текущий баланс: " + Math.round(balance * 1000.) / 1000.);
     }
 }
